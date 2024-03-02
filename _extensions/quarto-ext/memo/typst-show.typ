@@ -5,8 +5,8 @@ $endif$
 $if(sender)$
   sender: [$sender$],
 $endif$
-$if(receiver)$
-  receiver: [$receiver$],
+$if(recipient)$
+  recipient: [$recipient$],
 $endif$
 $if(re)$
   re: [$re$],

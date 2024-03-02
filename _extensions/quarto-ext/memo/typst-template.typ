@@ -8,7 +8,7 @@
   sender: none,
 
   // The letter's recipient, which is displayed close to the top.
-  receiver: none,
+  recipient: none,
 
   // The date, displayed to the right.
   date: none,
@@ -69,11 +69,7 @@
     margin: (top: 2in, x: 1.25in, bottom: 1.5in)
   )
 
-  text(
-    font: "Calibri",
-    weight: "light",
-    size: 18pt,
-    tracking: 12pt,
+  text(font: "Calibri", weight: "light", size: 18pt, tracking: 12pt,
     upper("Memorandum")
   )
 
@@ -85,7 +81,7 @@
     columns: (0.5in, auto),
     rows: (auto),
     row-gutter: 12pt,
-    "To:", receiver,
+    "To:", recipient,
     "From:", sender,
     "RE:", re
   )

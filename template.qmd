@@ -1,7 +1,7 @@
 ---
 re: "Typst memo template"
 sender: "Jason Law"
-receiver: "Whomever it may concern"
+recipient: "Whomever it may concern"
 date: today
 date-format: long
 format:
