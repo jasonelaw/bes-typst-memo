@@ -12,7 +12,7 @@ This will install the extension and create an example .qmd file that you can use
 
 ## Using
 
-Specify the sender, receipient, subject, etc. using YAML options, then write the body of the letter. For example, the following qmd source:
+Specify the sender, recipient, subject, etc. using YAML options, then write the body of the memo. For example, the following .qmd source:
 
 ```yaml
 ---
