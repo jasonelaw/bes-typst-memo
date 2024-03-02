@@ -1,6 +1,6 @@
 # Typst Memo Format for BES
 
-This is a memo format based on the [BES memo template[(https://employees.portland.gov/bes/resource-library/bes-forms-and-templates).
+This is a memo format based on the [BES memo template](https://employees.portland.gov/bes/resource-library/bes-forms-and-templates).
 
 ## Installing
 
@@ -8,7 +8,7 @@ This is a memo format based on the [BES memo template[(https://employees.portlan
 quarto use template jasonelaw/bes-typst-memo
 ```
 
-This will install the extension and create an example qmd file that you can use as a starting place for your document.
+This will install the extension and create an example .qmd file that you can use as a starting place for your document.
 
 ## Using
 
