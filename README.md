@@ -16,7 +16,7 @@ Specify the sender, recipient, subject, etc. using YAML options, then write the 
 
 ```yaml
 ---
-re: "Typst memo template"
+re: "Typst Memo Template"
 sender: "Jason Law"
 recipient: "Whomever it may concern"
 date: today

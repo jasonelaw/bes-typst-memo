@@ -2,7 +2,7 @@
 // and formats it as a simple letter.
 #let memo(
   // The letterhead image file path
-  letterhead: none,
+  letterhead: "images/letterhead.png",
 
   // The letter's sender, which is display at the top of the page.
   sender: none,
@@ -16,20 +16,23 @@
   // The subject line.
   re: none,
 
-  // The letter's content.
+  // The memo body
   body
 ) = {
 
-  let footertext1 = [
+  let footer = [
+    #set text(font: "Palatino Linotype", size: 10pt)
+    #line(length: 100%, stroke: (thickness: 0.5pt, paint: black))
+    #v(4pt, weak: true)
     Ph: 503-823-7740 #sym.square.filled
     Fax: 503-823-6995 #sym.square.filled
-    #link("portland.gov/bes") #sym.square.filled
+    #link("https://portland.gov/bes")[portland.gov/bes] #sym.square.filled
     An Equal Opportunity Employer\
-  ]
 
-  let footertext2 = [
+    #set text(font: "Calibri", size: 8pt)
+    #v(0.5em)
     The City of Portland ensures meaningful access to City programs, services,
-    and activities to comply with Civit Rights Title VI and ADA Title II laws
+    and activities to comply with Civil Rights Title VI and ADA Title II laws
     and reasonably provides: translation interpretation, modifications,
     accomodations, alternative formats, auxiliary aids and services. To request
     these services or file a complaint of discrimination, contact 503-823-7740,
@@ -38,37 +41,44 @@
   // Configure page and text properties.
   set page(
     paper: "us-letter",
-    header: {
-      align(center,
-        block(
-          height: 2in,
-          width: 7.5in,
-          if letterhead == none {
-            image("images/letterhead.png", width: 100%)
-          } else {
+    margin: (x: 1.5in, y: 1.5in),
+    header: context {
+      if counter(page).get().first() == 1 {
+        align(center + bottom,
+          move(block(
+            height: 1.5in,
+            width: 7.5in,
             image(letterhead, width: 100%)
-          }
-      ))
+          ), dy: 0.5in),
+        )
+      }
     },
     footer-descent: 10%,
-    footer: {
-      align(center + top,
-        block(
-          height: 1.5in,
-          width: 7in,
-          {
-            line(length: 100%)
-            v(4pt, weak: true)
-            text(font: "Palatino Linotype", size: 10pt, footertext1)
-            v(0.5em)
-            text(font: "Calibri", size: 8pt, footertext2)
-          }
+    footer: context {
+      if counter(page).get().first() == 1 {
+        align(center + horizon,
+          block(
+            height: 1.75in,
+            width: 7in,
+            footer
+          )
         )
-      )
-    },
-    margin: (top: 2in, x: 1.25in, bottom: 1.5in)
+      }
+    }
   )
 
+/*  align(center,
+    move(
+      block(
+        height: 1in,
+        width: 7.5in,
+        image(letterhead, width: 100%)
+      ),
+      dy: 1in
+    )
+  )
+*/
+  v(5em)
   text(font: "Calibri", weight: "light", size: 18pt, tracking: 12pt,
     upper("Memorandum")
   )
@@ -78,7 +88,7 @@
   line(length: 100%)
   date
   grid(
-    columns: (0.5in, auto),
+    columns: (1.0in, auto),
     rows: (auto),
     row-gutter: 12pt,
     "To:", recipient,
@@ -88,12 +98,9 @@
   line(length: 100%)
   v(2em)
 
+
   // memo body
   set text(font: "Calibri", size: 12pt, weight: "regular")
-  block(
-    columns(1,
-      body
-    )
-  )
-
+  set par(linebreaks: "optimized", first-line-indent: 1em)
+  body
 }

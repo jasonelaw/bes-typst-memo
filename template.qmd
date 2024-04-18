@@ -2,8 +2,7 @@
 re: "Typst memo template"
 sender: "Jason Law"
 recipient: "Whomever it may concern"
-date: today
-date-format: long
+date: "April 12, 2024"
 format:
   memo-typst: default
 ---
@@ -11,10 +10,25 @@ format:
 This is a quarto memo template for a [Typst](https://typst.app) document. It's
 fast and makes really pretty documents. 
 
+ ```{=typst}
+ #lorem(300)
+ ```
+ 
 You can also include code chunks and graphics like this:
 ```{r}
-data("Formaldehyde")
 plot(Formaldehyde$carb, Formaldehyde$optden, ylab = "", xlab = "")
 ```
+ 
+ ```{=typst}
+ #lorem(100)
+ ```
 
+ Why?
 
+Can I really include equations in line ` $E = m C^2$ `{=typst}
+
+ ```{=typst}
+ #lorem(200)
+ 
+ #lorem(100)
+ ```
